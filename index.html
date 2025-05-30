@@ -1,11 +1,131 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>sakanaのポートフォリオ</title>
-  </head>
-  <body>
-    <h1>sakana</h1>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ポートフォリオサイト</title>
+  <style>
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background: #005f73;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: normal;
+    }
+    nav {
+      background: #0a9396;
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    nav button {
+      background: #94d2bd;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    nav button:hover {
+      background: #ee9b00;
+      color: white;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    h2 {
+      border-bottom: 2px solid #005f73;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #005f73;
+      color: white;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>山田 太郎のポートフォリオ</h1>
+  </header>
+  <nav>
+    <button data-section="about">自己紹介</button>
+    <button data-section="skills">スキル</button>
+    <button data-section="projects">制作物</button>
+    <button data-section="contact">連絡先</button>
+  </nav>
+  <main>
+    <section id="about" class="content-section">
+      <h2>自己紹介</h2>
+      <p>こんにちは、山田太郎です。Web開発を中心に活動しており、主にJavaScriptやReactでの開発が得意です。</p>
+    </section>
+    <section id="skills" class="content-section" style="display:none;">
+      <h2>スキル</h2>
+      <ul>
+        <li>JavaScript / ES6+</li>
+        <li>React / Vue.js</li>
+        <li>HTML5 / CSS3 / Sass</li>
+        <li>Node.js / Express</li>
+        <li>Git / GitHub</li>
+      </ul>
+    </section>
+    <section id="projects" class="content-section" style="display:none;">
+      <h2>制作物</h2>
+      <ul>
+        <li>ポートフォリオサイト - Reactを使ったレスポンシブサイト</li>
+        <li>Todoアプリ - JavaScriptで作成、ローカルストレージ対応</li>
+        <li>ブログサイト - Gatsbyで構築した静的サイト</li>
+      </ul>
+    </section>
+    <section id="contact" class="content-section" style="display:none;">
+      <h2>連絡先</h2>
+      <p>Email: taro.yamada@example.com</p>
+      <p>GitHub: <a href="https://github.com/taroyamada" target="_blank" rel="noopener noreferrer">https://github.com/taroyamada</a></p>
+    </section>
+  </main>
+  <footer>
+    <small>© 2025 山田 太郎</small>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('nav button');
+    const sections = document.querySelectorAll('.content-section');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-section');
+        sections.forEach(section => {
+          if(section.id === target) {
+            section.style.display = 'block';
+          } else {
+            section.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
 </html>
